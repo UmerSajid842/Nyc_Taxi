@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelFontSize": 12, "titleFontSize": 14}}, "layer": [{"mark": {"type": "bar", "color": "#2ca02c"}, "encoding": {"x": {"field": "hour", "type": "ordinal"}, "y": {"field": "mean", "type": "quantitative"}}}, {"mark": {"type": "errorbar", "color": "black"}, "encoding": {"x": {"field": "hour", "type": "ordinal"}, "y": {"field": "ci_low", "type": "quantitative"}, "y2": {"field": "ci_high"}}}], "data": {"name": "data-12a8d8a30984757e6d516e510cbdddbd"}, "height": 400, "title": "Mean Fare Amount by Hour of Day with 95% CI", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-12a8d8a30984757e6d516e510cbdddbd": [{"hour": 0, "mean": 19.7023110785033, "ci_low": 19.076452615327586, "ci_high": 20.328169541679014}, {"hour": 1, "mean": 17.50839014158364, "ci_low": 16.852506649369783, "ci_high": 18.164273633797496}, {"hour": 2, "mean": 16.118001469507714, "ci_low": 15.48784430990337, "ci_high": 16.74815862911206}, {"hour": 3, "mean": 17.69864864864865, "ci_low": 16.811230056230904, "ci_high": 18.586067241066395}, {"hour": 4, "mean": 23.654031690140847, "ci_low": 21.913637696863912, "ci_high": 25.394425683417783}, {"hour": 5, "mean": 26.593708609271527, "ci_low": 24.52186858071427, "ci_high": 28.665548637828785}, {"hour": 6, "mean": 21.8371119133574, "ci_low": 20.651147265801093, "ci_high": 23.023076560913708}, {"hour": 7, "mean": 18.19740458015267, "ci_low": 17.523774935613936, "ci_high": 18.871034224691407}, {"hour": 8, "mean": 17.113213811420984, "ci_low": 16.64234761260866, "ci_high": 17.584080010233308}, {"hour": 9, "mean": 17.331433998100664, "ci_low": 16.838227660887526, "ci_high": 17.824640335313802}, {"hour": 10, "mean": 17.51923110433457, "ci_low": 17.054017196948937, "ci_high": 17.9844450117202}, {"hour": 11, "mean": 17.283511058451815, "ci_low": 16.870802491506872, "ci_high": 17.696219625396758}, {"hour": 12, "mean": 17.63645443196005, "ci_low": 17.222165845134782, "ci_high": 18.05074301878532}, {"hour": 13, "mean": 18.204734528238077, "ci_low": 17.769634864324402, "ci_high": 18.639834192151753}, {"hour": 14, "mean": 19.489141300865107, "ci_low": 19.048281579638832, "ci_high": 19.930001022091382}, {"hour": 15, "mean": 19.251535295979743, "ci_low": 18.80099155499037, "ci_high": 19.702079036969113}, {"hour": 16, "mean": 19.646173752310535, "ci_low": 19.198472832330612, "ci_high": 20.093874672290458}, {"hour": 17, "mean": 18.673699720053044, "ci_low": 18.261389136827717, "ci_high": 19.08601030327837}, {"hour": 18, "mean": 16.612887998855673, "ci_low": 16.26929162987483, "ci_high": 16.956484367836516}, {"hour": 19, "mean": 17.773260562274228, "ci_low": 17.374194062832938, "ci_high": 18.172327061715517}, {"hour": 20, "mean": 18.134335575349937, "ci_low": 17.69461230447448, "ci_high": 18.574058846225395}, {"hour": 21, "mean": 18.594797360980206, "ci_low": 18.14918740335893, "ci_high": 19.04040731860148}, {"hour": 22, "mean": 19.383357512953367, "ci_low": 18.890570647420226, "ci_high": 19.876144378486508}, {"hour": 23, "mean": 20.73598850874902, "ci_low": 20.155481377609227, "ci_high": 21.316495639888814}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

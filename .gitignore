@@ -1,0 +1,21 @@
+# Data files (too large for GitHub)
+*.csv
+*.parquet
+*.xlsx
+
+# API keys / secrets
+.env
+*.env
+secrets.py
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+.env
