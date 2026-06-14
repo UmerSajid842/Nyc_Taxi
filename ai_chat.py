@@ -4,10 +4,11 @@ from groq import Groq
 import pandas as pd
 import altair as alt
 
-# -------- SET YOUR VALID API KEY HERE ---------
-os.environ["GROQ_API_KEY"] = "<REMOVED>"
-client = Groq()
-# ---------------------------------------------
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Load data
 df = pd.read_csv("nyc_taxi_clean.csv").sample(5000)
